@@ -1,0 +1,43 @@
+{
+    "name": "coreshop/payum-mpay24-bundle",
+    "type": "pimcore-bundle",
+    "description": "CoreShop - mpay24 Bundle",
+    "keywords": [
+        "coreshop",
+        "pimcore",
+        "ecommerce",
+        "mpay24"
+    ],
+    "homepage": "http://www.coreshop.org",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Dominik Pfaffenbauer",
+            "email": "dominik@pfaffenbauer.at",
+            "homepage": "https://www.pfaffenbauer.at/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "coreshop/payum-mpay24": "~1.0.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "CoreShop\\Payum\\Mpay24Bundle\\": "src/CoreShop/Payum/Mpay24Bundle"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        },
+        "pimcore": {
+            "bundles": [
+                "CoreShop\\Payum\\Mpay24Bundle\\Mpay24Bundle"
+            ]
+        }
+    }
+}

@@ -1,0 +1,11 @@
+services:
+    CoreShop\Payum\Mpay24Bundle\Form\Payment\Mpay24Type:
+        tags:
+            - { name: coreshop.gateway_configuration_type, type: mpay24 }
+            - { name: form.type }
+
+    payum.mpay24_gateway_factory:
+        class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
+        arguments: [CoreShop\Payum\Mpay24\Mpay24GatewayFactory]
+        tags:
+            - {name: payum.gateway_factory_builder, factory: mpay24 }

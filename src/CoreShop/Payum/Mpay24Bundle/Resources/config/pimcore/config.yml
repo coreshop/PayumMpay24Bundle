@@ -1,0 +1,4 @@
+core_shop_payment:
+    pimcore_admin:
+        js:
+            mpay24: /bundles/mpay24/pimcore/js/mpay24.js
