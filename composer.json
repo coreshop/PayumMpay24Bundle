@@ -20,7 +20,8 @@
     ],
     "require": {
         "php": "^7.0",
-        "coreshop/payum-mpay24": "~1.0.0"
+        "coreshop/payum-mpay24": "~1.0.0",
+        "coreshop/payum-bundle": "^2.0"
     },
     "config": {
         "bin-dir": "bin"

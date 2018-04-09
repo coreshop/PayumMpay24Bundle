@@ -9,3 +9,8 @@ services:
         arguments: [CoreShop\Payum\Mpay24\Mpay24GatewayFactory]
         tags:
             - {name: payum.gateway_factory_builder, factory: mpay24 }
+
+    CoreShop\Payum\Mpay24Bundle\Extension\ConvertPaymentExtension:
+        autowire: true
+        tags:
+            - { name: payum.extension, alias: mpay24_order_extension, factory: mpay24, gateway: mpay24, prepend: false }
