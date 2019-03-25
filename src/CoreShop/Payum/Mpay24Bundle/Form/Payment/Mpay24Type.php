@@ -29,6 +29,8 @@ final class Mpay24Type extends AbstractType
         $builder
             ->add('merchantId', TextType::class)
             ->add('password', TextType::class)
-            ->add('test', CheckboxType::class);
+            ->add('test', CheckboxType::class)
+            ->add('paymentType', TextType::class)
+            ->add('brand', TextType::class);
     }
 }
