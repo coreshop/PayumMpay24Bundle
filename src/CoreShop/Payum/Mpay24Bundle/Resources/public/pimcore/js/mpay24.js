@@ -33,6 +33,20 @@ coreshop.provider.gateways.mpay24 = Class.create(coreshop.provider.gateways.abst
                 name: 'gatewayConfig.config.password',
                 length: 255,
                 value: config.password ? config.password : ""
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: t('mpay24_payment_type'),
+                name: 'gatewayConfig.config.paymentType',
+                length: 255,
+                value: config.paymentType ? config.paymentType : ""
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: t('mpay24_brand'),
+                name: 'gatewayConfig.config.brand',
+                length: 255,
+                value: config.brand ? config.brand : ""
             }
         ];
     }
