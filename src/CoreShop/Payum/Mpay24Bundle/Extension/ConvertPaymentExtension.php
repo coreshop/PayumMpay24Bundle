@@ -18,7 +18,7 @@ use CoreShop\Component\Core\Model\CustomerInterface;
 use CoreShop\Component\Core\Model\ProductInterface;
 use CoreShop\Component\Order\Model\OrderInterface;
 use CoreShop\Component\Order\Repository\OrderRepositoryInterface;
-use CoreShop\Component\Payment\Model\PaymentInterface;
+use CoreShop\Component\Core\Model\PaymentInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Extension\Context;
 use Payum\Core\Extension\ExtensionInterface;
@@ -26,18 +26,6 @@ use Payum\Core\Request\Convert;
 
 final class ConvertPaymentExtension implements ExtensionInterface
 {
-    /**
-     * @var OrderRepositoryInterface
-     */
-    private $orderRepository;
-
-    /**
-     * @param OrderRepositoryInterface $orderRepository
-     */
-    public function __construct(OrderRepositoryInterface $orderRepository)
-    {
-        $this->orderRepository = $orderRepository;
-    }
 
     /**
      * @param Context $context
@@ -66,7 +54,7 @@ final class ConvertPaymentExtension implements ExtensionInterface
         }
 
         /** @var OrderInterface $order */
-        $order = $this->orderRepository->find($payment->getOrderId());
+        $order = $payment->getOrder();
         $invoiceAddress = $order->getInvoiceAddress() ;
         $customer = $order->getCustomer();
 
