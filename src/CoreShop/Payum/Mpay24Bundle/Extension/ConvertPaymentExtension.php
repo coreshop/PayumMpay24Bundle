@@ -58,6 +58,15 @@ final class ConvertPaymentExtension implements ExtensionInterface
         $invoiceAddress = $order->getInvoiceAddress() ;
         $customer = $order->getCustomer();
 
+        $locale = null;
+
+        if (method_exists($order, 'getOrderLanguage')) {
+            $locale = $order->getOrderLanguage();
+        }
+        else if (method_exists($order, 'getLocaleCode')) {
+            $locale = $order->getLocaleCode();
+        }
+
         $resultItems = [];
         $resultCustomer = [];
 
@@ -73,7 +82,7 @@ final class ConvertPaymentExtension implements ExtensionInterface
 
             if ($product instanceof ProductInterface) {
                 $resultItem['productNr'] = $product->getSku();
-                $resultItem['description'] = $product->getName($order->getOrderLanguage());
+                $resultItem['description'] = $product->getName($locale);
             }
 
             $resultItems[$index + 1] = $resultItem;
@@ -97,7 +106,7 @@ final class ConvertPaymentExtension implements ExtensionInterface
         }
 
         $resultOrder = [
-            'language' => strtoupper($order->getOrderLanguage()),
+            'language' => strtoupper($locale),
             'items' => $resultItems,
             'customer' => $resultCustomer
         ];
