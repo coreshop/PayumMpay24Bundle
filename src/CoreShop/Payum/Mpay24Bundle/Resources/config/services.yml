@@ -12,5 +12,6 @@ services:
 
     CoreShop\Payum\Mpay24Bundle\Extension\ConvertPaymentExtension:
         autowire: true
+        public: true
         tags:
             - { name: payum.extension, alias: mpay24_order_extension, factory: mpay24, gateway: mpay24, prepend: false }
