@@ -77,7 +77,8 @@ final class ConvertPaymentExtension implements ExtensionInterface
                 'quantity' => $item->getQuantity(),
                 'itemPrice' => sprintf("%01.2f", ($item->getItemPrice(true) / 100)),
                 'itemTax' => sprintf("%01.2f", ($item->getTotalTax() / 100)),
-                'price' => sprintf("%01.2f", ($item->getTotal(true) / 100))
+                'price' => sprintf("%01.2f", ($item->getTotal(true) / 100)),
+                'description' => $item->getName(),
             ];
 
             if ($product instanceof ProductInterface) {
